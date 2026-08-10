@@ -1,0 +1,134 @@
+@import "tailwindcss";
+:root {
+  --xmas-red: #c1272d;
+  --xmas-green: #14532d;
+  --xmas-gold: #f5c542;
+}
+body {
+  font-family: ui-rounded, "Hiragino Maru Gothic ProN", Quicksand, Comfortaa,
+    Manjari, "Arial Rounded MT", "Arial Rounded MT Bold", Calibri,
+    source-sans-pro, sans-serif;
+}
+.font-hand {
+  font-family: "Segoe Print", "Bradley Hand", Chilanka, TSCu_Comic, casual,
+    cursive;
+}
+/* ---------- Falling snow ---------- */
+.snowflake {
+  position: fixed;
+  top: -5vh;
+  color: #fff;
+  user-select: none;
+  pointer-events: none;
+  z-index: 40;
+  animation-name: snowfall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+}
+@keyframes snowfall {
+  0% {
+    transform: translateY(-5vh) translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(50vh) translateX(24px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(105vh) translateX(-12px) rotate(360deg);
+  }
+}
+/* ---------- Twinkling lights ---------- */
+.twinkle {
+  animation: twinkle 1.6s ease-in-out infinite;
+}
+.twinkle:nth-child(2n) {
+  animation-delay: 0.4s;
+}
+.twinkle:nth-child(3n) {
+  animation-delay: 0.8s;
+}
+.twinkle:nth-child(5n) {
+  animation-delay: 1.2s;
+}
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px currentColor);
+  }
+  50% {
+    opacity: 0.35;
+    filter: none;
+  }
+}
+/* ---------- Gentle float ---------- */
+.float-slow {
+  animation: floaty 4s ease-in-out infinite;
+}
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.wiggle:hover {
+  animation: wiggle 0.4s ease-in-out;
+}
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-4deg);
+  }
+  75% {
+    transform: rotate(4deg);
+  }
+}
+/* ---------- Letter paper ---------- */
+.letter-paper {
+  background: repeating-linear-gradient(
+      transparent,
+      transparent 31px,
+      rgba(193, 39, 45, 0.12) 31px,
+      rgba(193, 39, 45, 0.12) 32px
+    ),
+    linear-gradient(180deg, #fffdf5, #fff8e7);
+}
+.envelope-shadow {
+  box-shadow:
+    0 10px 30px -10px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 3px rgba(245, 197, 66, 0.35);
+}
+/* ---------- Candy cane stripe ---------- */
+.candy-stripe {
+  background: repeating-linear-gradient(
+    45deg,
+    #c1272d 0 14px,
+    #ffffff 14px 28px
+  );
+}
+/* ---------- Certificate print ---------- */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+  }
+  .print-area {
+    box-shadow: none !important;
+  }
+}
+/* Scrollbar for letter areas */
+.nice-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.nice-scroll::-webkit-scrollbar-thumb {
+  background: rgba(20, 83, 45, 0.4);
+  border-radius: 8px;
+}
