@@ -3,6 +3,7 @@ import { CERTIFICATES } from "@/lib/content";
 import { getElf } from "@/lib/elves";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import PrintButton from "@/components/PrintButton";
 export default async function CertificatePage({
   params,
   searchParams,
